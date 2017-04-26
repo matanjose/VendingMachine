@@ -46,6 +46,7 @@ protocol VendingMachine {
     
     func vend(selection: VendingSelection, quantity: Int) throws
     func deposit(_ amount: Double)
+    func item(forSelection selection: VendingSelection) -> VendingItem?
     
 }
 
@@ -129,6 +130,9 @@ class FoodVendingMachine: VendingMachine {
     
     func deposit(_ amount: Double) {
         
+    }
+    func item(forSelection selection: VendingSelection) -> VendingItem? {
+        return inventory[selection]
     }
 }
 
